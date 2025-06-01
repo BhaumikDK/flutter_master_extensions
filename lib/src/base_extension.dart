@@ -560,7 +560,7 @@ extension ExtendedWidget on Widget {
   Widget get toSliver => SliverToBoxAdapter(child: this);
 }
 
-extension ExtemdedPading on Widget {
+extension ExtendedPadding on Widget {
   /// To give all sides padding
   Padding toAllPadding(final double value) =>
       Padding(padding: value.toPadding, child: this);
@@ -701,19 +701,19 @@ extension ExtendedListExtension on List {
   /// ```dart
   /// List<Widget> widgets = [Widget1(), Widget2(), Widget3()];
   /// Widget separator = Divider();
-  /// List<Widget> separatedWidgets = widgets.separatedby(separator);
+  /// List<Widget> separatedWidgets = widgets.separatedB y(separator);
   /// // Result: [Widget1(), Divider(), Widget2(), Divider(), Widget3()]
   /// ```
   ///
   /// - Parameter separator: The widget to insert between each pair of widgets.
   /// - Returns: A new list of widgets with the separator inserted.
-  List<Widget> separatedby(Widget seperator) {
+  List<Widget> separatedBy(Widget separator) {
     assert(this is List<Widget>,
         'List should be a List<Widget> but is $runtimeType');
     final List<Widget> list = <Widget>[];
     for (int i = 0; i < length; i++) {
       list.add(this[i]);
-      if (i != length - 1) list.add(seperator);
+      if (i != length - 1) list.add(separator);
     }
     return list;
   }

@@ -8,7 +8,7 @@ import 'equality.dart';
 
 typedef IndexedPredicate<T> = bool Function(int index, T);
 
-extension ExtededCollectionsNullableExtensions<T> on Iterable<T>? {
+extension ExtendedCollectionsNullableExtensions<T> on Iterable<T>? {
   /// Returns this Iterable if it's not `null` and the empty list otherwise.
   Iterable<T> orEmpty() => this ?? [];
 
@@ -40,7 +40,7 @@ extension ExtededCollectionsNullableExtensions<T> on Iterable<T>? {
 
   /// Zip is used to combine multiple iterables into a single list that contains
   /// the combination of them two.
-  zip<T>(Iterable<T> iterable) sync* {
+  zip(Iterable<T> iterable) sync* {
     if (iterable.isEmptyOrNull) return;
     final iterables = List<Iterable>.empty()
       ..add(this.orEmpty())
@@ -53,7 +53,7 @@ extension ExtededCollectionsNullableExtensions<T> on Iterable<T>? {
   }
 }
 
-extension ExtededCollectionsExtensions<T> on Iterable<T> {
+extension ExtendedCollectionsExtensions<T> on Iterable<T> {
   ///Sorts elements in the array in-place according to natural sort order of the value returned by specified [selector] function.
   Iterable<T> sortBy<TKey>(
     TKey Function(T) keySelector, {
@@ -147,7 +147,7 @@ extension ExtededCollectionsExtensions<T> on Iterable<T> {
     return list;
   }
 
-  // Retuns map operation as a List
+  // Returns map operation as a List
   List<E> mapList<E>(E Function(T e) f) => map(f).toList();
 
   // Takes the first half of a list
@@ -194,7 +194,7 @@ extension ExtededCollectionsExtensions<T> on Iterable<T> {
   /// var name = [].firstOrDefault["jack"]; // jack
   T firstOrDefault(T defaultValue) => firstOrNull ?? defaultValue;
 
-  /// Will retrun new [Iterable] with all elements that satisfy the predicate [predicate],
+  /// Will return new [Iterable] with all elements that satisfy the predicate [predicate],
   Iterable<T> whereIndexed(IndexedPredicate<T> predicate) =>
       _IndexedWhereIterable(this, predicate);
 

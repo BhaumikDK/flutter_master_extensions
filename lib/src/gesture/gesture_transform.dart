@@ -6,10 +6,10 @@ class TranslateOnClick extends StatefulWidget {
   const TranslateOnClick({super.key, required this.child});
 
   @override
-  _TranslateOnClickState createState() => _TranslateOnClickState();
+  TranslateOnClickState createState() => TranslateOnClickState();
 }
 
-class _TranslateOnClickState extends State<TranslateOnClick> {
+class TranslateOnClickState extends State<TranslateOnClick> {
   final nonClickTransform = Matrix4.identity();
   final clickTransform = Matrix4.identity()..translate(0, -10, 0);
 

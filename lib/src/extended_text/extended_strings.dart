@@ -89,8 +89,8 @@ extension ExtendedString on String {
   bool get isUsername =>
       hasMatch(this, r'^[a-zA-Z0-9][a-zA-Z0-9_.]+[a-zA-Z0-9]$');
 
-  /// Checks if string is Palindrom.
-  bool isPalindrom(String string) {
+  /// Checks if string is Palindrome.
+  bool isPalindrome(String string) {
     final cleanString = string
         .toLowerCase()
         .replaceAll(RegExp(r"\s+"), '')
@@ -178,7 +178,7 @@ extension ExtendedString on String {
   bool get isAlphabetOnly => hasMatch(this, r'^[a-zA-Z]+$');
 
   /// Checks if string contains at least one Capital Letter
-  bool get hasCapitalletter => hasMatch(this, r'[A-Z]');
+  bool get hasCapitalLetter => hasMatch(this, r'[A-Z]');
 
   /// Checks if data is null or blank (empty or only contains whitespace).
   bool? isBlank(dynamic value) => _isEmpty(value);
@@ -294,12 +294,12 @@ extension ExtendedString on String {
   }
 
   /// Shrink a string to be no more than [maxSize] in length, extending from the end.
-  /// For example, in a string with 10 charachters, a [maxSize] of 3 would return the last 3 charachters.
+  /// For example, in a string with 10 characters, a [maxSize] of 3 would return the last 3 characters.
   String? limitFromEnd(int maxSize) =>
       length < maxSize ? this : substring(length - maxSize);
 
   /// Shrink a string to be no more than [maxSize] in length, extending from the start.
-  /// For example, in a string with 10 charachters, a [maxSize] of 3 would return the first 3 charachters.
+  /// For example, in a string with 10 characters, a [maxSize] of 3 would return the first 3 characters.
   String? limitFromStart(int maxSize) =>
       length < maxSize ? this : substring(0, maxSize);
 
@@ -330,13 +330,13 @@ extension HttpExtensions on String {
   /// result request -> www.mydomain.com/user
 
   Future<dynamic> httpGet(String endPoint) async {
-    if (this.isEmpty) return;
+    if (isEmpty) return;
 
     try {
       final response = await http.get(Uri.http(this, endPoint));
       return response.statusCode == 200
           ? convert.jsonDecode(response.body)
-          : print('Request failed with status: ${response.statusCode}.');
+          : 'Request failed with status: ${response.statusCode}.'.toLog;
     } on Exception catch (e) {
       return Future.error(e);
     }
@@ -351,14 +351,14 @@ extension HttpExtensions on String {
   /// result request -> www.mydomain.com/user
   Future<dynamic> httpPost(String endPoint, String json,
       [Map<String, String> headers = _defaultHeaders]) async {
-    if (this.isEmpty) return;
+    if (isEmpty) return;
 
     try {
       final response = await http.post(Uri.http(this, endPoint),
           headers: headers, body: json);
       return response.statusCode == 200
           ? convert.jsonDecode(response.body)
-          : print('Request failed with status: ${response.statusCode}.');
+          : 'Request failed with status: ${response.statusCode}.'.toLog;
     } on Exception catch (e) {
       return Future.error(e);
     }
@@ -373,7 +373,7 @@ extension HttpExtensions on String {
   /// result request -> www.mydomain.com/user
   Future<dynamic> httpPut(String endPoint, String json,
       [Map<String, String> headers = _defaultHeaders]) async {
-    if (this.isEmpty) return;
+    if (isEmpty) return;
 
     try {
       final response = await http.put(Uri.http(this, endPoint),
