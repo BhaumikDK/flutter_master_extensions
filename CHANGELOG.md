@@ -1,3 +1,12 @@
+## [0.0.2] - 2026-04-15
+
+### Fixed
+- Minor bug fixes in extension methods
+- Improved stability in two core files
+
+### Changed
+- Updated dependencies to latest versions
+
 ## [0.0.1] - 2025-03-06
 
 ### Added
