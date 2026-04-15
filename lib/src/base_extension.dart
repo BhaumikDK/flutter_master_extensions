@@ -51,7 +51,7 @@ extension ExtendedInteger on int {
   bool get isNull => (this == null);
 
   /// Returns the absolute value
-  get absolute => abs();
+  int get absolute => abs();
 
   /// Returns number of digits in this number
   int get numberOfDigits => toString().length;
@@ -544,8 +544,7 @@ extension ExtendedWidget on Widget {
   }) =>
       Tooltip(
         message: message,
-        decoration: decoration,
-        height: height,
+        decoration: decoration, constraints: BoxConstraints(minHeight: height ?? 0.0,),
         padding: padding,
         preferBelow: preferBelow,
         textStyle: textStyle,
