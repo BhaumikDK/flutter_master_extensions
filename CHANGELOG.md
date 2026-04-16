@@ -1,3 +1,8 @@
+## [0.0.3] - 2026-04-16
+
+### Changed
+- Updated the license.
+
 ## [0.0.2] - 2026-04-15
 
 ### Fixed

@@ -1,7 +1,9 @@
 name: flutter_master_extensions
 description: "Set of method-extensions for dart that makes using framework in a much easier and clean way also adds additional functionality."
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/BhaumikDK/flutter_master_extensions.git
+repository: https://github.com/BhaumikDK/flutter_master_extensions
+issue_tracker: https://github.com/BhaumikDK/flutter_master_extensions/issues
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
